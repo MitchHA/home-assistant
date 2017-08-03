@@ -8,3 +8,12 @@ Using the multisensor code from Bruh (https://github.com/bruhautomation/ESP-MQTT
 Have Nest Thermostat in the hallway also pulling in the hallway temps. Amazon Dot in the living room provides voice control into HA using emulated hue.
 
 
+![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/main%20page.png)
+![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/travel.png)
+![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/weather.png)
+![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/automations.png)
+![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/network.png)
+![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/devices.png)
+![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/fitbit.png)
+![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/media%20devices.png)
+![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/tv%20remote.png)
