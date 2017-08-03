@@ -7,6 +7,8 @@ Using the multisensor code from Bruh (https://github.com/bruhautomation/ESP-MQTT
 
 Have Nest Thermostat in the hallway also pulling in the hallway temps. Amazon Dot in the living room provides voice control into HA using emulated hue.
 
+An old Android phone running IP Webcam provides a camera feed of the front of the house.
+
 
 ![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/main%20page.png)
 ![Screenshot of Home View](https://raw.githubusercontent.com/BertrumUK/home-assistant/master/Screenshots/travel.png)
