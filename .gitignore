@@ -18,3 +18,4 @@ known_devices.yaml
 secrets.yaml
 nest.conf
 *.._
+*.git
