@@ -45,15 +45,15 @@
       - group.sonoff
       - group.remote_sockets
       - group.automation
-   
+
   Network_Devices:
     view: yes
     icon: mdi:network
     name: Network Devices
     entities:
       - group.devices
-      
-      
+
+
   Misc_View:
     view: yes
     icon: mdi:raspberrypi
@@ -157,7 +157,7 @@
     - sensor.igd_received_bytes
 
     - sensor.wan_ip
-    
+
 
   Energy:
     - sensor.energy_budget
@@ -184,7 +184,7 @@
     - sensor.dark_sky_nearest_storm_distance
     - sensor.dark_sky_nearest_storm_bearing
     - sensor.dark_sky_pressure
-    
+
 
   Fitbit:
     - sensor.steps
@@ -203,7 +203,7 @@
     - sensor.mqtt_rf_temperature
     - sensor.mqtt_rf_humidity
     - sensor.mold_indicator
-    
+
   Remote Sockets:
     - switch.sonoff1
     - sensor.sonoff_temperature
@@ -221,6 +221,7 @@
     - automation.auto_renew_ssl_cert
     - automation.conservatory_motion_detection
     - automation.front_door_motion_detection
+    - automation.utility_room_motion_detection
 
   Bedroom:
     - sensor.bedroom_temperature
@@ -229,14 +230,14 @@
   Webcam:
     - switch.webcam_night_vision
     - switch.webcam_overlay
-    
+
   Peugeot:
     - device_tracker.obdii
 
   iPhone:
     - sensor.iphone_battery_level
     - sensor.iphone_battery_state
-    
+
   Devices:
     - sensor.nodemcu
     - sensor.mqtt_rf
@@ -255,11 +256,11 @@
   Conservatory:
      - sensor.conservatory_temperature
      - sensor.conservatory_humidity     - sensor.conservatory_LDR
-     
-   
+
+
   Humax Remote:
      - input_select.channel
-    
+
   Security:
      - light.front_door_led
      - light.utility_room_led
@@ -268,7 +269,7 @@
      - sensor.utility_room_pir
      - sensor.conservatory_pir
      - sensor.webcam_motion
-   
+
 
   #Sonoff:
   #  - switch.sonoff1
