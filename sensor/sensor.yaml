@@ -372,6 +372,6 @@ Unknown
   value_template: '{{ value | round(2)  }}'
 
 - platform: waqi
-  token: a59123f1e36b0ee32eaf8d85059b729d9b3de560
+  token: !secret waqi
   locations:
     - Southampton

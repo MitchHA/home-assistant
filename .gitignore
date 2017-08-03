@@ -17,3 +17,4 @@ known_devices.yaml
 *.jpeg
 secrets.yaml
 nest.conf
+*.._
