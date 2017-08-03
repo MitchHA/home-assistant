@@ -1,0 +1,377 @@
+- platform: darksky
+  api_key: !secret darksky
+  monitored_conditions:
+   - summary
+   - nearest_storm_distance
+   - nearest_storm_bearing
+   - precip_type
+   - precip_intensity
+   - precip_probability
+   - temperature
+   - apparent_temperature
+   - dew_point
+   - wind_speed
+   - wind_bearing
+   - cloud_cover
+   - humidity
+   - pressure
+   
+# sensor 2
+- platform: api_streams
+
+########## Efergy Energy Monitor ##########
+# sensor 3
+- platform: efergy
+  app_token: !secret efergy_token
+  utc_offset: 0
+  monitored_variables:
+   - type: instant_readings
+   - type: budget
+   - type: cost
+     period: day
+     currency: £
+   - type: amount
+     period: day
+
+# sensor 4
+- platform: speedtest
+  minute:
+      - 0
+      - 15
+      - 45
+  
+  monitored_conditions:
+    - download
+    - upload
+    - ping
+    
+# sensor 5
+  # Tracking Home to Work
+- platform: google_travel_time
+  name: Neil Home to Work
+  api_key: !secret google_api
+  origin: !secret home
+  destination: !secret neilwork
+  units: imperial
+
+# sensor 6
+  # Tracking Work to Home
+- platform: google_travel_time
+  name: Neil Work to Home
+  api_key: !secret google_api
+  origin: !secret neilwork
+  destination: !secret home
+  units: imperial
+    
+# sensor 7
+  # Tracking Home to Work
+- platform: google_travel_time
+  name: Julie Home to Work
+  api_key: !secret google_api
+  origin: !secret home
+  destination: !secret juliework
+  units: imperial
+
+# sensor 8
+  # Tracking Work to Home
+- platform: google_travel_time
+  name: Julie Work to Home
+  api_key: !secret google_api
+  origin: !secret juliework
+  destination: !secret home
+  units: imperial
+
+# sensor 9
+- platform: nest
+  monitored_conditions:
+    - 'temperature'
+    - 'humidity'
+    - 'operation_mode'
+    - 'target'
+    
+
+# sensor 10
+- platform: command_line
+  name: CPU Temperature
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) | round(1)  }}'
+    
+    
+# sensor 11
+#- platform: dht
+#sensor: AM2302
+# pin: 23
+# name: Living Room
+# monitored_conditions:
+#  - temperature
+#  - humidity
+    
+# sensor 12
+- platform: mold_indicator
+  indoor_temp_sensor: sensor.mqtt_rf_temperature
+  indoor_humidity_sensor: sensor.mqtt_rf_humidity
+  outdoor_temp_sensor: sensor.dark_sky_temperature
+  calibration_factor: 1.225
+
+    
+# sensor 13
+- platform: systemmonitor
+  resources:
+    - type: last_boot
+    - type: since_last_boot
+    - type: processor_use
+    - type: disk_use
+      arg: /home
+    - type: disk_free
+      arg: /home 
+    - type: memory_use
+    - type: memory_free
+    - type: memory_use_percent
+      
+- platform: template
+  sensors:
+      since_last_boot_templated:
+        value_template: >-
+          {%- set slb = states.sensor.since_last_boot.state.split(' ') -%}
+          {%- set count = slb | length -%}
+          {%- set hms = slb[count - 1] -%}
+          {%- set hms_trimmed = hms.split('.')[0] -%}
+          {%- set hms_split = hms_trimmed.split(':') -%}
+          {%- set hours = hms_split[0] | int -%}
+          {%- set minutes = hms_split[1] | int -%}
+
+          {%- if count == 3 -%}
+            {{ slb[0] ~ ' ' ~ slb[1] ~ ' ' }}
+          {%- endif -%}
+          {%- if hours > 0 -%}
+            {%- if hours == 1 -%}
+              1 hour
+            {%- else -%}
+              {{ hours }} hours
+            {%- endif -%}
+          {%- endif -%}
+          {%- if minutes > 0 -%}
+            {%- if hours > 0 -%}
+               {{ ', ' }}
+            {%- endif -%}
+            {%- if minutes == 1 -%}
+              1 minute
+            {%- else -%}
+              {{ minutes }} minutes
+            {%- endif -%}
+          {%- endif -%}
+          
+# sensor 14
+- platform: statistics
+  entity_id: sensor.energy_cost
+- platform: statistics
+  entity_id: sensor.energy_usage
+    
+# sensor 15
+- platform: fitbit
+  monitored_resources:
+    - "activities/distance"
+    - "activities/minutesFairlyActive"
+    - "activities/minutesLightlyActive"
+    - "activities/minutesSedentary"
+    - "activities/minutesVeryActive"
+    - "activities/steps"
+    - "devices/battery"
+    - "sleep/efficiency"
+  
+# sensor 16
+- platform: moon
+  
+
+# sensor 17
+- platform: command_line
+  name: SSL Cert Expiry
+  unit_of_measurement: days
+  scan_interval: 86400
+  command: "ssl-cert-check -b -c /etc/letsencrypt/live/bertrum.duckdns.org/cert.pem | awk '{ print $NF }'"
+
+
+- platform: command_line
+  name: "HA Uptime"
+  command: echo "$(($(date +%s) - $(date -d "$(head -n1 /home/hass/.homeassistant/home-assistant.log | cut -d' ' -f-2)" +%s)))"
+  scan_interval: 60
+  value_template: >-
+    {% set uptime = value | int %}
+    {% set seconds = uptime % 60 %}
+    {% set minutes = ((uptime % 3600) / 60) | int %}
+    {% set hours = ((uptime % 86400) / 3600) | int %}
+    {% set days = (uptime / 86400) | int %}
+    {%- if days > 0 -%}
+      {%- if days == 1 -%}
+        1 day
+      {%- else -%}
+        {{ days }} days
+      {%- endif -%}
+      {{ ', ' }}
+    {%- endif -%}
+    {{ '%02d' % hours }}:{{ '%02d' % minutes }}  
+
+- platform: rest
+  resource: http://ip.jsontest.com
+  name: wan_ip
+  value_template: '{{ value_json.ip }}'
+    
+- platform: rest
+  resource: https://pypi.python.org/pypi/homeassistant/json
+  name: HA Current Version
+  value_template: '{{ value_json.info.version }}'
+  scan_interval: 3600
+
+- platform: template
+  sensors:
+      obihai:
+        friendly_name: 'ObiHai'
+        value_template: "{{ 'Online' if is_state('device_tracker.obihai', 'home') else 'Off-line' }}"
+
+      alex_pc:
+        friendly_name: 'Alex PC'
+        value_template: "{{ 'Online' if is_state('device_tracker.alex_pc', 'home') else 'Off-line' }}"
+
+      nest:
+        friendly_name: 'Nest'
+        value_template: "{{ 'Online' if is_state('device_tracker.nest', 'home') else 'Off-line' }}"
+
+      roku:
+        friendly_name: 'Roku'
+        value_template: "{{ 'Online' if is_state('device_tracker.roku', 'home') else 'Off-line' }}"
+
+      hummy:
+        friendly_name: 'Hummy'
+        value_template: "{{ 'Online' if is_state('device_tracker.hummy', 'home') else 'Off-line' }}"
+
+      ps4:
+        friendly_name: 'PS4'
+        value_template: "{{ 'Online' if is_state('device_tracker.[s4', 'home') else 'Off-line' }}"
+
+      alexa:
+        friendly_name: 'Alexa'
+        value_template: "{{ 'Online' if is_state('device_tracker.alexa', 'home') else 'Off-line' }}"
+
+      chromecast:
+        friendly_name: 'ChromeCast'
+        value_template: "{{ 'Online' if is_state('device_tracker.chromecast', 'home') else 'Off-line' }}"
+        
+      efergy:
+        friendly_name: 'Efergy'
+        value_template: "{{ 'Online' if is_state('device_tracker.efergy', 'home') else 'Off-line' }}"
+
+      readynas:
+        friendly_name: 'ReadyNAS'
+        value_template: "{{ 'Online' if is_state('device_tracker.readynas', 'home') else 'Off-line' }}"
+        
+      nodemcu:
+        friendly_name: 'NodeMCU'
+        value_template: "{{ 'Online' if is_state('device_tracker.nodemcu', 'home') else 'Off-line' }}"
+        
+      sonoff:
+        friendly_name: 'Sonoff'
+        value_template: "{{ 'Online' if is_state('device_tracker.sonoff', 'home') else 'Off-line' }}"
+        
+      mqtt_rf: 
+        friendly_name: 'MQTT RF'
+        value_template: "{{ 'Online' if is_state('device_tracker.mqtt_rf', 'home') else 'Off-line' }}"
+
+      bedroom_nodemcu:
+        friendly_name: 'Bedroom NodeMCU'
+        value_template: "{{ 'Online' if is_state('device_tracker.bedroom_nodemcu', 'home') else 'Off-line' }}"
+        
+      air_quality:
+        friendly_name: 'Air Quality'
+        value_template: "{%- if states.sensor.waqi_southampton_centre_united_kingdom.state | float < 51 %}
+Good
+{% elif states.sensor.waqi_southampton_centre_united_kingdom.state | float < 101 %}
+Moderate
+{% elif states.sensor.waqi_southampton_centre_united_kingdom.state | float < 151 %}
+Unhealthy for Sensitive Groups
+{% elif states.sensor.waqi_southampton_centre_united_kingdom.state | float < 201 %}
+Unhealthy
+{% elif states.sensor.waqi_southampton_centre_united_kingdom.state | float < 301 %}
+Very unhealthy
+{% elif states.sensor.waqi_southampton_centre_united_kingdom.state | float > 300 %}
+Hazardous
+{% else %}
+Unknown
+{%- endif %}"
+
+        
+        
+- platform: mqtt  
+  state_topic: "bruh/sensornode1"  
+  name: "Conservatory Humidity"  
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(0) }}'  
+ 
+- platform: mqtt  
+  state_topic: "bruh/sensornode1"  
+  name: "Conservatory Temperature"  
+  unit_of_measurement: "°C"  
+  value_template: '{{ value_json.temperature | round(0) }}'  
+ 
+- platform: mqtt  
+  state_topic: "bruh/sensornode1"  
+  name: "Conservatory LDR"
+  ##This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
+  unit_of_measurement: "LUX"  
+  value_template: '{{ value_json.ldr }}'  
+   
+- platform: mqtt  
+  state_topic: "bruh/sensornode1"  
+  name: "Conservatory PIR"  
+  value_template: '{{ value_json.motion }}'  
+  
+- platform: mqtt  
+  state_topic: "bedroom"  
+  name: "Bedroom Temperature"  
+  unit_of_measurement: "°C"  
+  value_template: '{{ value_json.temperature | round(0) }}'  
+  
+- platform: mqtt  
+  state_topic: "bedroom"  
+  name: "Bedroom Humidity"  
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(0) }}' 
+  
+- platform: mqtt  
+  state_topic: "frontdoor" 
+  name: "Front Door PIR"  
+  value_template: '{{ value_json.motion }}'
+  
+- platform: mqtt  
+  state_topic: "utility" 
+  name: "Utility Room PIR"  
+  value_template: '{{ value_json.motion }}'
+
+- platform: mqtt
+  name: "Sonoff Temperature"
+  state_topic: "tele/sonoff1/SENSOR"
+  value_template: "{{ value_json['DHT11'].Temperature }}"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "Sonoff Humidity"
+  state_topic: "tele/sonoff1/SENSOR"
+  value_template: "{{ value_json['DHT11'].Humidity }}"
+  unit_of_measurement: "%"  
+  
+- platform: mqtt
+  name: "MQTT RF Temperature"
+  state_topic: "home/433toMQTT/dht1/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | round(2)  }}'
+
+- platform: mqtt
+  name: "MQTT RF Humidity"
+  state_topic: "home/433toMQTT/dht1/hum"
+  unit_of_measurement: "%"
+  value_template: '{{ value | round(2)  }}'
+
+- platform: waqi
+  token: a59123f1e36b0ee32eaf8d85059b729d9b3de560
+  locations:
+    - Southampton

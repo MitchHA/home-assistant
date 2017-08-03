@@ -1,0 +1,16 @@
+########## Work to Home Nights ##########
+
+  alias: Work to Home Nights 
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.neil_work_to_home
+    above: 70
+  condition:
+    condition: time
+    after: '06:00'
+    before: '09:00'  
+  action:
+    service: notify.ios_neil
+    data_template:
+        title: "Traffic Alert"
+        message: "Check Traffic - Work to Home Nights"

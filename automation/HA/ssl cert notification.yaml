@@ -1,0 +1,9 @@
+  alias: 'SSL expiry notification'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.ssl_cert_expiry
+    below: 20
+  action:
+    service: notify.ios_neil
+    data:
+      message: 'Warning - SSL certificate expires in 20 days and has not been automatically renewed'

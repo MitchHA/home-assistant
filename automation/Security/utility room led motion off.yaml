@@ -1,0 +1,9 @@
+  alias: Utility Room Motion Trigger LED Off
+  trigger:
+    platform: state
+    entity_id: sensor.utility_room_pir
+    from: 'motion detected'
+    to: 'standby'
+  action:
+    service: light.turn_off
+    entity_id: light.utility_room_led

@@ -1,0 +1,120 @@
+
+  
+#############MQTT NodeMCU Switch###############
+  
+- platform: mqtt
+  name: "Lights"
+  state_topic: "home/433toMQTT" 
+  command_topic: "home/commands/MQTTto433/PLSL_306/433_1"
+  payload_on: "5578559"
+  payload_off: "5578551"
+  optimistic: false
+  retain: true
+  
+- platform: mqtt
+  name: "TV"
+  state_topic: "home/433toMQTT" 
+  command_topic: "home/commands/MQTTto433/PLSL_306/433_1"
+  payload_on: "5578555"
+  payload_off: "5578547"
+  optimistic: false
+  retain: true
+  
+- platform: mqtt
+  name: "Bedroom Fan"
+  state_topic: "home/433toMQTT" 
+  command_topic: "home/commands/MQTTto433/PLSL_306/433_1"
+  payload_on: "3124495"
+  payload_off: "3124487"
+  retain: true
+  
+- platform: mqtt
+  name: "Fireplace"
+  state_topic: "home/433toMQTT" 
+  command_topic: "home/commands/MQTTto433/PLSL_306/433_1"
+  payload_on: "5578558"
+  payload_off: "5578550"
+  optimistic: false
+  retain: true
+       
+- platform: mqtt
+  name: "Sonoff1"
+  command_topic: "cmnd/sonoff1/power"
+  state_topic: "stat/sonoff1/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+  
+- platform: mqtt
+  name: "Humax Mute"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_NEC"
+  payload_on: "530663"
+  payload_off: "530663"
+  optimistic: false
+  retain: true
+  
+  
+- platform: mqtt
+  name: "Humax Power"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_NEC"
+  payload_on: "524543"
+  payload_off: "524543"
+  optimistic: false
+  retain: true
+  
+- platform: mqtt
+  name: "Humax Forward"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_NEC"
+  payload_on: "583193"
+  payload_off: "583193"
+  optimistic: false
+  retain: true
+  
+- platform: mqtt
+  name: "Humax Back"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_NEC"
+  payload_on: "550553"
+  payload_off: "550553"
+  optimistic: false
+  retain: true
+  
+- platform: mqtt
+  name: "Humax Channel Up"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_NEC"
+  payload_on: "526583"
+  payload_off: "526583"
+  optimistic: false
+  retain: true
+  
+- platform: mqtt
+  name: "Humax Channel Down"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_NEC"
+  payload_on: "585743"
+  payload_off: "585743"
+  optimistic: false
+  retain: true
+  
+- platform: mqtt
+  name: "Humax Volume Up"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_NEC"
+  payload_on: "587783"
+  payload_off: "587783"
+  optimistic: false
+  retain: true
+  
+- platform: mqtt
+  name: "Humax Volume Down"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_NEC"
+  payload_on: "525053"
+  payload_off: "525053"
+  optimistic: false
+  retain: true

@@ -1,0 +1,16 @@
+  alias: Conservatory Motion Trigger LED On - Not Home
+  trigger:
+    platform: state
+    entity_id: sensor.conservatory_pir
+    from: 'standby'
+    to: 'motion detected'
+  condition:
+   - condition: state
+     entity_id: group.family
+     state: not_home
+  action:
+    service: light.turn_on
+    entity_id: light.conservatory_led
+    data:
+      brightness: 250
+      rgb_color: [255, 0, 0]

@@ -1,0 +1,16 @@
+  alias: Front Door Motion Trigger LED On - Not Home
+  trigger:
+    platform: state
+    entity_id: sensor.front_door_pir
+    from: 'standby'
+    to: 'motion detected'
+  condition:
+   - condition: state
+     entity_id: group.family
+     state: not_home
+  action:
+    service: light.turn_on
+    entity_id: light.front_door_led
+    data:
+      brightness: 250
+      rgb_color: [255, 0, 0]

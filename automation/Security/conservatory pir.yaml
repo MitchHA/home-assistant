@@ -1,0 +1,16 @@
+  alias: 'Conservatory Motion Detection'
+  trigger:
+    platform: state
+    entity_id: sensor.conservatory_pir
+    to: "motion detected"
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: not_home  
+  action:
+    service: notify.ios_neil
+    data:
+      message: 'Conservatory Motion Detected'
+      data:
+        push:
+          sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"

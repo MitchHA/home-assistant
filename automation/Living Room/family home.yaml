@@ -1,0 +1,16 @@
+  alias: Family Home Lights
+  trigger:
+    platform: state
+    entity_id: group.family
+    from: "not_home"
+    to: "home"
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+    - condition: time
+      after: '16:00:00'
+      before: '00:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.lights

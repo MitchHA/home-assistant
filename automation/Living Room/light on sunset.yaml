@@ -1,0 +1,17 @@
+########## Lights on 15 minutes before sunset ##########
+
+  alias: Lights on Sunset
+  trigger:
+   platform: numeric_state
+   entity_id: sensor.conservatory_ldr
+   below: 750
+  condition:
+   - condition: state
+     entity_id: group.family
+     state: "home"
+   - condition: time
+     after: '15:00:00'
+     before: '22:00:00'
+  action:
+   service: homeassistant.turn_on
+   entity_id: switch.lights

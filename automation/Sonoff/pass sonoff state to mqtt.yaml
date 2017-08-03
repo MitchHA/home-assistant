@@ -1,0 +1,10 @@
+  alias: "Pass new Sonoff state out to MQTT"
+  trigger:
+    platform: state
+    entity_id: input_select.sonoff1_set
+  action:
+    service: "mqtt.publish"
+    data_template:
+        topic: "stat/sonoff1/POWER"
+        retain: "false"
+        payload: '{{states("input_select.sonoff1_set")}}'

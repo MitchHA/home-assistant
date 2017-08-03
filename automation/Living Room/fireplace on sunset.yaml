@@ -1,0 +1,16 @@
+######### Fireplace on Sunset ############
+
+  alias: Fireplace on Sunset
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: home
+    - condition: numeric_state
+      entity_id: sensor.mqtt_rf_temperature
+      below: 20
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.fireplace 

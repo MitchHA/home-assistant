@@ -1,0 +1,12 @@
+  alias: 'Webcam Motion Detection'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.webcam_motion
+    above: 300.0
+  action:
+    service: notify.ios_neil
+    data:
+      message: 'Webcam Motion Detected'
+      data:
+        push:
+          sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
