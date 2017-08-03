@@ -7,7 +7,8 @@
     entity_id: group.family
     state: home
   action:
-  - service: switch.humax_power
+  - service: switch.turn_on
+    entity_id: switch.humax_power
   - service: notify.ios_neil
     data_template:
       title: "Hummy is turning on"
@@ -15,5 +16,3 @@
       data:
         push:
           sound: "US-EN-Morgan-Freeman-Turning-On-The-TV.wav"
-          
- 
