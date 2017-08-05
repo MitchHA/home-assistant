@@ -42,8 +42,7 @@
     icon: mdi:robot
     name: Automation
     entities:
-      - group.sonoff
-      - group.remote_sockets
+      #- group.remote_sockets
       - group.automation
 
   Network_Devices:
