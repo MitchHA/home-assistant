@@ -302,26 +302,26 @@ Unknown
         
         
 - platform: mqtt  
-  state_topic: "bruh/sensornode1"  
+  state_topic: "conservatory"  
   name: "Conservatory Humidity"  
   unit_of_measurement: "%"  
-  value_template: '{{ value_json.humidity | round(0) }}'  
+  value_template: '{{ value_json.humidity | round(1) }}'  
  
 - platform: mqtt  
-  state_topic: "bruh/sensornode1"  
+  state_topic: "conservatory"  
   name: "Conservatory Temperature"  
   unit_of_measurement: "°C"  
-  value_template: '{{ value_json.temperature | round(0) }}'  
+  value_template: '{{ value_json.temperature | round(1) }}'  
  
 - platform: mqtt  
-  state_topic: "bruh/sensornode1"  
+  state_topic: "conservatory"  
   name: "Conservatory LDR"
   ##This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
   unit_of_measurement: "LUX"  
   value_template: '{{ value_json.ldr }}'  
    
 - platform: mqtt  
-  state_topic: "bruh/sensornode1"  
+  state_topic: "conservatory"  
   name: "Conservatory PIR"  
   value_template: '{{ value_json.motion }}'  
   
@@ -329,13 +329,13 @@ Unknown
   state_topic: "bedroom"  
   name: "Bedroom Temperature"  
   unit_of_measurement: "°C"  
-  value_template: '{{ value_json.temperature | round(0) }}'  
+  value_template: '{{ value_json.temperature | round(1) }}'  
   
 - platform: mqtt  
   state_topic: "bedroom"  
   name: "Bedroom Humidity"  
   unit_of_measurement: "%"  
-  value_template: '{{ value_json.humidity | round(0) }}' 
+  value_template: '{{ value_json.humidity | round(1) }}' 
   
 - platform: mqtt  
   state_topic: "frontdoor" 
@@ -350,24 +350,24 @@ Unknown
 - platform: mqtt
   name: "Sonoff Temperature"
   state_topic: "tele/sonoff1/SENSOR"
-  value_template: "{{ value_json['DHT11'].Temperature }}"
+  value_template: "{{ value_json['AM2301'].Temperature }}"
   unit_of_measurement: "°C"
 
 - platform: mqtt
   name: "Sonoff Humidity"
   state_topic: "tele/sonoff1/SENSOR"
-  value_template: "{{ value_json['DHT11'].Humidity }}"
+  value_template: "{{ value_json['AM2301'].Humidity }}"
   unit_of_measurement: "%"  
   
 - platform: mqtt
   name: "MQTT RF Temperature"
-  state_topic: "home/433toMQTT/dht1/temp"
+  state_topic: "home/DHTtoMQTT/dht1/temp"
   unit_of_measurement: "°C"
   value_template: '{{ value | round(2)  }}'
 
 - platform: mqtt
   name: "MQTT RF Humidity"
-  state_topic: "home/433toMQTT/dht1/hum"
+  state_topic: "home/DHTtoMQTT/dht1/hum"
   unit_of_measurement: "%"
   value_template: '{{ value | round(2)  }}'
 

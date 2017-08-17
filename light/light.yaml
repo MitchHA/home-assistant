@@ -1,7 +1,7 @@
 - platform: mqtt_json  
   name: "Conservatory LED"  
-  state_topic: "bruh/sensornode1"  
-  command_topic: "bruh/sensornode1/set"  
+  state_topic: "conservatory"  
+  command_topic: "conservatory/set"  
   brightness: true  
   flash: true  
   rgb: true  

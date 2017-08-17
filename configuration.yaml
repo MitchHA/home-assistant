@@ -7,22 +7,6 @@ homeassistant:
   time_zone: Europe/London
   customize: !include customise/customise.yaml
 
-frontend:
-  themes:
-    green:
-      primary-color: green
-    blue:
-      primary-color: blue
-    red:
-      primary-color: red
-    black:
-      primary-color: black
-    orange:
-      primary-color: orange
-    lime:
-      primary-color: limegreen
-    lawn:
-      primary-color: lawngreen
 
 http:
    api_password: !secret api_password
@@ -122,6 +106,14 @@ emulated_hue:
   exposed_domains:
     - switch
 
+panel_iframe:
+ mdiindex:
+   title: MDI Icon Index
+   icon: mdi:vector-square
+   url: https://cdn.rawgit.com/james-fry/home-assistant-mdi/efd95d7a/home-assistant-mdi.html
+
+
+
 ####Views####
 group: !include group/group.yaml
 
@@ -146,3 +138,6 @@ light: !include light/light.yaml
 
 ####### Input Select #######
 input_select: !include inputs/select.yaml
+
+######## Themes #########
+frontend: !include themes/themes.yaml
