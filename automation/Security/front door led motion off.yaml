@@ -2,8 +2,8 @@
   trigger:
     platform: state
     entity_id: sensor.front_door_pir
-    from: 'motion detected'
-    to: 'standby'
+    from: 'Motion Detected'
+    to: 'Standby'
   action:
     service: light.turn_off
     entity_id: light.front_door_led
