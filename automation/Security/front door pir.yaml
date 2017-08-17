@@ -2,7 +2,7 @@
   trigger:
     platform: state
     entity_id: sensor.front_door_pir
-    to: "motion detected"
+    to: "Motion Detected"
   condition:
     - condition: state
       entity_id: group.family
