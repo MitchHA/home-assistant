@@ -11,9 +11,9 @@
   
   
 - platform: mqtt_json  
-  name: "Front Door LED"  
-  state_topic: "frontdoor"  
-  command_topic: "frontdoor/set"  
+  name: "Hallway LED"  
+  state_topic: "hallway"  
+  command_topic: "hallway/set"  
   brightness: true  
   flash: true  
   rgb: true  

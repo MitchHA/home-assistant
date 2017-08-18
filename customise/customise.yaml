@@ -108,10 +108,13 @@
     sensor.bedroom_nodemcu:
        icon: mdi:hotel
 
-    sensor.front_door_pir:
+    sensor.hallway_pir:
        icon: mdi:run
        
     sensor.utility_room_pir:
+       icon: mdi:run
+       
+    sensor.fitbitdistance:
        icon: mdi:run
        
     

@@ -281,6 +281,12 @@
         friendly_name: 'Bedroom NodeMCU'
         value_template: "{{ 'Online' if is_state('device_tracker.bedroom_nodemcu', 'home') else 'Off-line' }}"
         
+        
+      fitbitdistance:
+        value_template: '{{ states.sensor.distance.state | multiply(0.6214) | round(2) }}'
+        friendly_name: 'Fitbit Distance'
+        unit_of_measurement: 'miles'
+        
       air_quality:
         friendly_name: 'Air Quality'
         value_template: "{%- if states.sensor.waqi_southampton_centre_united_kingdom.state | float < 51 %}
@@ -311,7 +317,7 @@ Unknown
   state_topic: "conservatory"  
   name: "Conservatory Temperature"  
   unit_of_measurement: "°C"  
-  value_template: '{{ value_json.temperature | round(1) }}'  
+  value_template: '{{value_json.temperature | multiply(0.89) | round(1) }}'
  
 - platform: mqtt  
   state_topic: "conservatory"  
@@ -338,8 +344,8 @@ Unknown
   value_template: '{{ value_json.humidity | round(1) }}' 
   
 - platform: mqtt  
-  state_topic: "frontdoor" 
-  name: "Front Door PIR"  
+  state_topic: "hallway" 
+  name: "Hallway PIR"  
   value_template: '{{ value_json.motion }}'
   
 - platform: mqtt  

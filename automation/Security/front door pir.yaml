@@ -1,7 +1,7 @@
   alias: 'Front Door Motion Detection'
   trigger:
     platform: state
-    entity_id: sensor.front_door_pir
+    entity_id: sensor.hallway_pir
     to: "Motion Detected"
   condition:
     - condition: state
