@@ -101,6 +101,9 @@
     sensor.bedroom_humidity:
        icon: mdi:water-percent
        
+    sensor.garage_humidity:
+       icon: mdi:water-percent 
+       
     sensor.mqtt_rf:
        friendly_name: 'Living Room NodeMCU'
        icon: mdi:raspberrypi 
@@ -113,6 +116,9 @@
        
     sensor.utility_room_pir:
        icon: mdi:run
+
+    sensor.front_door_pir:
+       icon: mdi:run 
        
     sensor.fitbitdistance:
        icon: mdi:run

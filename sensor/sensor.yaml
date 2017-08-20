@@ -376,6 +376,23 @@ Unknown
   state_topic: "home/DHTtoMQTT/dht1/hum"
   unit_of_measurement: "%"
   value_template: '{{ value | round(2)  }}'
+  
+- platform: mqtt  
+  state_topic: "frontdoor"  
+  name: "Garage Humidity"  
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(1) }}'  
+ 
+- platform: mqtt  
+  state_topic: "frontdoor"  
+  name: "Garage Temperature"  
+  unit_of_measurement: "°C"  
+  value_template: '{{value_json.temperature | multiply(0.86) | round(1) }}'
+ 
+- platform: mqtt  
+  state_topic: "frontdoor"  
+  name: "Front Door PIR"  
+  value_template: '{{ value_json.motion }}'  
 
 - platform: waqi
   token: !secret waqi

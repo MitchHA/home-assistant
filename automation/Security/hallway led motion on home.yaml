@@ -1,4 +1,4 @@
-  alias: Front Door Motion Trigger LED On - Not Home
+  alias: Hallway Motion Trigger LED On - Home
   trigger:
     platform: state
     entity_id: sensor.hallway_pir
@@ -7,10 +7,10 @@
   condition:
    - condition: state
      entity_id: group.family
-     state: not_home
+     state: home
   action:
     service: light.turn_on
     entity_id: light.hallway_led
     data:
-      brightness: 250
-      rgb_color: [255, 0, 0]
+      brightness: 100
+      rgb_color: [0, 255, 0]
