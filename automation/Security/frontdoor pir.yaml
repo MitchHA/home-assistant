@@ -1,0 +1,16 @@
+  alias: 'Front Door Motion Detection'
+  trigger:
+    platform: state
+    entity_id: sensor.front_door_pir
+    to: "Motion Detected"
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: not_home  
+  action:
+    service: notify.ios_neil
+    data:
+      message: 'Front Door Motion Detected'
+      data:
+        push:
+          sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"

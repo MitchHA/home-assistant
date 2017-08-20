@@ -219,10 +219,11 @@
     - automation.hummy_on_630am
     - automation.bedroom_fan_on_2230
     - automation.auto_renew_ssl_cert
-    - automation.conservatory_motion_detection
+    - automation.front_door_motion_detection    
     - automation.hallway_motion_detection
     - automation.utility_room_motion_detection
-    - automation.front_door_motion_detection
+    - automation.conservatory_motion_detection    
+
 
   Bedroom:
     - sensor.bedroom_temperature
