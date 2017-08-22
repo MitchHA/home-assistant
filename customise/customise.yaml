@@ -123,6 +123,9 @@
     sensor.fitbitdistance:
        icon: mdi:run
        
+    group.alex:
+       picture: /local/alex.jpg
+       
     
     
     sensor.mqtt_rf_temperature:
