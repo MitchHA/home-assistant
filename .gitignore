@@ -20,3 +20,4 @@ nest.conf
 *.._
 .gitignore
 .gitattributes
+shell.yaml
