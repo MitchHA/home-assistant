@@ -5,7 +5,7 @@
   condition:
     condition: numeric_state
     entity_id: sensor.bedroom_temperature
-    below: 24
+    below: 23.5
   action:
     service: homeassistant.turn_off
     entity_id: switch.bedroom_fan

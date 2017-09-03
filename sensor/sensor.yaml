@@ -381,13 +381,13 @@ Unknown
   name: "MQTT RF Temperature"
   state_topic: "home/DHTtoMQTT/dht1/temp"
   unit_of_measurement: "°C"
-  value_template: '{{ value | round(2)  }}'
+  value_template: '{{ value | round(1)  }}'
 
 - platform: mqtt
   name: "MQTT RF Humidity"
   state_topic: "home/DHTtoMQTT/dht1/hum"
   unit_of_measurement: "%"
-  value_template: '{{ value | round(2)  }}'
+  value_template: '{{value | multiply(0.82) | round(1) }}'
   
 - platform: mqtt  
   state_topic: "frontdoor"  
@@ -410,3 +410,38 @@ Unknown
   token: !secret waqi
   locations:
     - Southampton
+    
+- platform: rest
+  name: dns_queries_today
+  resource: !secret pi_hole_url
+  value_template: '{{ value_json.dns_queries_today }}'
+  
+- platform: rest
+  name: domains_being_blocked
+  resource: !secret pi_hole_url
+  value_template: '{{ value_json.domains_being_blocked }}'
+  
+- platform: rest
+  name: ads_blocked_today
+  resource: !secret pi_hole_url
+  value_template: '{{ value_json.ads_blocked_today }}'
+  
+- platform: rest
+  name: ads_percentage_today
+  resource: !secret pi_hole_url
+  value_template: '{{ "%0.2f" % (value_json.ads_percentage_today |float) }}'
+
+- platform: rest
+  name: unique_domains
+  resource: !secret pi_hole_url
+  value_template: '{{ value_json.unique_domains }}'
+    
+- platform: rest
+  name: queries_forwarded
+  resource: !secret pi_hole_url
+  value_template: '{{ value_json.queries_forwarded }}'
+    
+- platform: rest
+  name: queries_cached
+  resource: !secret pi_hole_url
+  value_template: '{{ value_json.queries_cached }}'

@@ -3,7 +3,6 @@
     icon: mdi:home-assistant
     entities:
       - group.family
-      - group.security
       - group.living_room
       - group.conservatory
       - group.bedroom
@@ -12,6 +11,12 @@
       - group.webcam
       - camera.webcam
       - updater.updater
+
+  Security_view:
+    view: yes
+    icon: mdi:security-home
+    entities:
+      - group.security
 
   Travel_View:
     view: yes
@@ -62,6 +67,7 @@
       - group.energy
       - group.broadband
       - group.raspberry_pi_3
+      - group.dns
       - group.iphone
       - group.connected_clients
 
@@ -86,15 +92,9 @@
      icon: mdi:remote
      name: TV Remote
      entities:
-      - group.humax_remote
-      - switch.humax_mute
-      - switch.humax_power
-      - switch.humax_volume_up
-      - switch.humax_volume_down
-      - switch.humax_channel_up
-      - switch.humax_channel_down
-      - switch.humax_forward
-      - switch.humax_back
+      - group.channel_select
+      - group.remote_control
+      - group.channel_enable
 
 ####Groups####
   Family:
@@ -104,8 +104,8 @@
     - device_tracker.Cerys_
     - device_tracker.Neil
     - device_tracker.Julie
-    #- group.alex
-    #- group.cerys
+   #- group.alex
+   #- group.cerys
   Nest:
     - climate.hallway
     - sensor.hallway_thermostat_temperature
@@ -146,6 +146,9 @@
     - sensor.processor_use
     - sensor.last_boot
     - sensor.since_last_boot_templated
+    
+  PI Hole:
+    - group.dns 
 
   Connected Clients:
     - sensor.connected_clients
@@ -197,13 +200,6 @@
     - sensor.alta_battery
     - sensor.sleep_efficiency
 
-  Living Room:
-    - switch.lights
-    - switch.tv
-    - switch.fireplace
-    - sensor.mqtt_rf_temperature
-    - sensor.mqtt_rf_humidity
-    - sensor.mold_indicator
 
   Remote Sockets:
     - switch.sonoff1
@@ -220,17 +216,35 @@
     - automation.hummy_on_630am
     - automation.bedroom_fan_on_2230
     - automation.auto_renew_ssl_cert
-    - automation.front_door_motion_detection    
-    - automation.hallway_motion_detection
-    - automation.utility_room_motion_detection
-    - automation.conservatory_motion_detection    
+    
+    
+    
+########### House ##############
 
-
+  Living Room:
+    - switch.lights
+    - switch.tv
+    - switch.fireplace
+    - sensor.mqtt_rf_temperature
+    - sensor.mqtt_rf_humidity
+    - sensor.mold_indicator
+    
   Bedroom:
     - sensor.bedroom_temperature
     - sensor.bedroom_humidity
     - sensor.bedroom_real_feel 
     - switch.bedroom_fan
+    
+  Conservatory:
+    - sensor.conservatory_temperature
+    - sensor.conservatory_humidity
+    - sensor.conservatory_real_feel   
+    - sensor.conservatory_LDR
+
+  Garage:
+    - sensor.garage_temperature
+    - sensor.garage_humidity
+
   Webcam:
     - switch.webcam_night_vision
     - switch.webcam_overlay
@@ -242,6 +256,8 @@
     - sensor.iphone_battery_level
     - sensor.iphone_battery_state
 
+########### Network Devices ##############    
+    
   Devices:
     - sensor.nodemcu
     - sensor.mqtt_rf
@@ -257,36 +273,66 @@
     - sensor.ps4
     - sensor.readynas
 
-  Conservatory:
-     - sensor.conservatory_temperature
-     - sensor.conservatory_humidity
-     - sensor.conservatory_real_feel   
-     - sensor.conservatory_LDR
-     
-  Garage:
-      - sensor.garage_temperature
-      - sensor.garage_humidity
+########### Humax ##############
 
-  Humax Remote:
-     - input_select.channel
+  Channel Select:
+    - input_select.channel    
+  Remote Control:
+    - switch.humax_mute
+    - switch.humax_power
+    - switch.humax_volume_up
+    - switch.humax_volume_down
+    - switch.humax_channel_up
+    - switch.humax_channel_down
+    - switch.humax_forward
+    - switch.humax_back
+
+  Channel Enable:
+    - automation.bbc_one
+    - automation.bbc_one_hd
+    - automation.bbc_two
+    - automation.itv
+    - automation.itv_hd
+    - automation.channel_4_hd
+    - automation.channel_5_hd
+
+########### Security ##############      
 
   Security:
-     - sensor.front_door_pir
-     - sensor.hallway_pir
-     - sensor.utility_room_pir
-     - sensor.conservatory_pir
-     - sensor.webcam_motion
-     - light.hallway_led
-     - light.utility_room_led
-     - light.conservatory_led
-     
+    - sensor.front_door_pir
+    - sensor.hallway_pir
+    - sensor.utility_room_pir
+    - sensor.conservatory_pir
+    - sensor.webcam_motion
+    - light.hallway_led
+    - light.utility_room_led
+    - light.conservatory_led
+    - automation.front_door_motion_detection    
+    - automation.hallway_motion_detection
+    - automation.utility_room_motion_detection
+    - automation.conservatory_motion_detection
+    - automation.webcam_motion_detection    
+
+
   Alex:
-     - device_tracker.alex
-     - device_tracker.alex_ 
-     
+    - device_tracker.alex
+    - device_tracker.alex_ 
+
   Cerys:
-     - device_tracker.cerys
-     - device_tracker.cerys_
+    - device_tracker.cerys
+    - device_tracker.cerys_
 
   #Sonoff:
   #  - switch.sonoff1
+  
+######## PI Hole ########
+
+  DNS:
+    entities:
+      - sensor.dns_queries_today
+      - sensor.domains_being_blocked
+      - sensor.ads_blocked_today
+      - sensor.ads_percentage_today
+      - sensor.unique_domains
+      - sensor.queries_forwarded
+      - sensor.queries_cached

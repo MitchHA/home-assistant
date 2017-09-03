@@ -248,7 +248,38 @@
     switch.humax_volume_up:
         icon: mdi:remote
     switch.humax_volume_down:
-        icon: mdi:remote            
+        icon: mdi:remote  
+        
+        
+    sensor.ads_percentage_today:
+      friendly_name: Percentage Blocked
+      unit_of_measurement: '%'
+      icon: mdi:ticket-percent
+     
+    sensor.domains_being_blocked:
+      friendly_name: Total Domains Blocking
+      icon: mdi:do-not-disturb
+
+    sensor.ads_blocked_today:
+      friendly_name: Ads Blocked Today
+      icon: mdi:do-not-disturb
+      
+    sensor.dns_queries_today:
+      friendly_name: DNS Queries Today
+      icon: mdi:note-text
+      
+    sensor.unique_domains:
+      friendly_name: Unique Domains
+      icon: mdi:approval
+
+    sensor.queries_forwarded:
+      friendly_name: Queries Forwarded
+      icon: mdi:arrange-send-backward
+
+    sensor.queries_cached:
+      friendly_name: Queries Cached
+      icon: mdi:animation
+          
 
 # Order groups or entities using order: with a number
     group.family:

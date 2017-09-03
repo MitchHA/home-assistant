@@ -1,0 +1,312 @@
+  default_view:
+    view: yes
+    icon: mdi:home-assistant
+    entities:
+      - group.family
+      - group.living_room
+      - group.conservatory
+      - group.bedroom
+      - group.garage
+      - group.nest
+      - group.webcam
+      - camera.webcam
+      - updater.updater
+
+  Security_view:
+    view: yes
+    icon: mdi:security-home
+    entities:
+      - group.security
+
+  Travel_View:
+    view: yes
+    icon: mdi:car
+    name: Travel
+    entities:
+      - group.travel
+      - group.traffic
+      - camera.m27_jcn_3
+      - camera.m27_to_m3
+      - camera.m3_chandlers_ford
+      - camera.m3_twyford
+      - camera.m3_jcn_6
+#    - weblink.m27_jcn_3
+#    - weblink.m27_to_m3
+#    - weblink.m3_twyford
+#    - weblink.m3_chandlers_ford
+
+  Weather_View:
+    view: yes
+    icon: mdi:weather-rainy
+    name: Weather
+    entities:
+      - group.weather
+
+
+  Automation_View:
+    view: yes
+    icon: mdi:robot
+    name: Automation
+    entities:
+      - group.remote_sockets
+      - group.automation
+
+  Network_Devices:
+    view: yes
+    icon: mdi:network
+    name: Network Devices
+    entities:
+      - group.devices
+
+
+  Misc_View:
+    view: yes
+    icon: mdi:raspberrypi
+    name: Misc
+    entities:
+      - group.energy
+      - group.broadband
+      - group.raspberry_pi_3
+      - group.iphone
+      - group.connected_clients
+
+  Health_View:
+    view: yes
+    icon: mdi:run
+    name: Health
+    entities:
+      - group.fitbit
+
+  Media_View:
+    view: yes
+    icon: mdi:television
+    name: Media Player
+    entities:
+      - media_player.roku_lt
+      - media_player.neils_chromecast
+
+
+  TV_Remote:
+     view: yes
+     icon: mdi:remote
+     name: TV Remote
+     entities:
+      - group.humax_remote
+      - switch.humax_mute
+      - switch.humax_power
+      - switch.humax_volume_up
+      - switch.humax_volume_down
+      - switch.humax_channel_up
+      - switch.humax_channel_down
+      - switch.humax_forward
+      - switch.humax_back
+      - group.channel_select
+
+####Groups####
+  Family:
+    - device_tracker.Alex
+    - device_tracker.Cerys
+    - device_tracker.Alex_
+    - device_tracker.Cerys_
+    - device_tracker.Neil
+    - device_tracker.Julie
+   #- group.alex
+   #- group.cerys
+  Nest:
+    - climate.hallway
+    - sensor.hallway_thermostat_temperature
+    - sensor.hallway_thermostat_humidity
+    - sensor.dark_sky_temperature
+    - sensor.hallway_thermostat_target
+    - sensor.hallway_thermostat_operation_mode
+    - binary_sensor.hallway_thermostat_online
+    - binary_sensor.hallway_thermostat_is_using_emergency_heat
+
+  #Thermostat:
+   # - climate.hallway
+
+  Travel:
+    - device_tracker.peugeot
+    - sensor.neil_home_to_work
+    - sensor.neil_work_to_home
+    - sensor.julie_home_to_work
+    - sensor.julie_work_to_home
+
+  Traffic:
+    - automation.home_to_work_days
+    - automation.work_to_home_days
+    - automation.home_to_work_nights
+    - automation.work_to_home_nights
+
+  Raspberry Pi 3:
+    - sensor.ssl_Cert_Expiry
+    - sensor.ha_uptime
+    - sensor.ha_current_version
+    - sensor.cpu_temperature
+    - sensor.disk_free_home
+    - sensor.hallway_last_ip
+    - sensor.disk_use_home
+    - sensor.ram_use_2
+    - sensor.ram_use
+    - sensor.ram_free
+    - sensor.processor_use
+    - sensor.last_boot
+    - sensor.since_last_boot_templated
+
+  Connected Clients:
+    - sensor.connected_clients
+
+  Broadband:
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.igd_sent_bytes
+    - sensor.igd_received_bytes
+
+    - sensor.wan_ip
+
+
+  Energy:
+    - sensor.energy_budget
+    - sensor.energy_cost
+    - sensor.energy_usage
+    - sensor.energy_consumed
+
+  Weather:
+    - sun.sun
+    - sensor.moon
+    - sensor.waqi_southampton_centre_united_kingdom
+    - sensor.air_quality
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_apparent_temperature
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_dew_point
+    - sensor.dark_sky_wind_bearing
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_nearest_storm_distance
+    - sensor.dark_sky_nearest_storm_bearing
+    - sensor.dark_sky_pressure
+
+
+  Fitbit:
+    - sensor.steps
+    - sensor.fitbitdistance
+    - sensor.minuteslightlyactive
+    - sensor.minutesfairlyactive
+    - sensor.minutesveryactive
+    - sensor.minutessedentary
+    - sensor.alta_battery
+    - sensor.sleep_efficiency
+
+  Living Room:
+    - switch.lights
+    - switch.tv
+    - switch.fireplace
+    - sensor.mqtt_rf_temperature
+    - sensor.mqtt_rf_humidity
+    - sensor.mold_indicator
+
+  Remote Sockets:
+    - switch.sonoff1
+    - sensor.sonoff_temperature
+    - sensor.sonoff_humidity
+
+  Automation:
+    - automation.family_home_lights
+    - automation.lights_on_sunset
+    - automation.fireplace_on_sunset
+    - automation.lights_off_midnight
+    - automation.tv_off_midnight
+    - automation.broadband_drop
+    - automation.hummy_on_630am
+    - automation.bedroom_fan_on_2230
+    - automation.auto_renew_ssl_cert
+    
+
+  Bedroom:
+    - sensor.bedroom_temperature
+    - sensor.bedroom_humidity
+    - sensor.bedroom_real_feel 
+    - switch.bedroom_fan
+
+  Garage:
+      - sensor.garage_temperature
+      - sensor.garage_humidity
+
+  Webcam:
+    - switch.webcam_night_vision
+    - switch.webcam_overlay
+
+  Peugeot:
+    - device_tracker.obdii
+
+  iPhone:
+    - sensor.iphone_battery_level
+    - sensor.iphone_battery_state
+
+  Devices:
+    - sensor.nodemcu
+    - sensor.mqtt_rf
+    - sensor.bedroom_nodemcu
+    - sensor.sonoff
+    - sensor.chromecast
+    - sensor.hummy
+    - sensor.obihai
+    - sensor.efergy
+    - sensor.nest
+    - sensor.roku
+    - sensor.alex_pc
+    - sensor.ps4
+    - sensor.readynas
+
+  Conservatory:
+     - sensor.conservatory_temperature
+     - sensor.conservatory_humidity
+     - sensor.conservatory_real_feel   
+     - sensor.conservatory_LDR
+     
+
+
+  Humax Remote:
+     - input_select.channel
+     
+  Channel Select:
+     - automation.bbc_one
+     - automation.bbc_one_hd
+     - automation.bbc_two
+     - automation.itv
+     - automation.itv_hd
+     - automation.channel_4_hd
+     - automation.channel_5_hd
+
+  Security:
+     - sensor.front_door_pir
+     - sensor.hallway_pir
+     - sensor.utility_room_pir
+     - sensor.conservatory_pir
+     - sensor.webcam_motion
+     - light.hallway_led
+     - light.utility_room_led
+     - light.conservatory_led
+     - automation.front_door_motion_detection    
+     - automation.hallway_motion_detection
+     - automation.utility_room_motion_detection
+     - automation.conservatory_motion_detection
+     - automation.webcam_motion_detection    
+
+     
+  Alex:
+     - device_tracker.alex
+     - device_tracker.alex_ 
+     
+  Cerys:
+     - device_tracker.cerys
+     - device_tracker.cerys_
+
+  #Sonoff:
+  #  - switch.sonoff1
