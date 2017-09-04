@@ -11,12 +11,12 @@
      entity_id: group.family
      state:  not_home
   action:
-    - service: notify.ios_neil
+      service: notify.ios_neil
       data:
         message: 'Front Door Motion Detected'
         data:
-        - push:
+          push:
             sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
-        - push:
-             photo: "http://192.168.0.24:6779/shot.jpg"
+        ##   - push:
+        ##       image: "http://192.168.0.24:6779/shot.jpg"
         
