@@ -66,8 +66,8 @@
     entities:
       - group.energy
       - group.broadband
-      - group.raspberry_pi_3
       - group.dns
+      - group.raspberry_pi_3
       - group.iphone
       - group.connected_clients
 
