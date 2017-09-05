@@ -308,9 +308,11 @@
       order: "12"
     group.broadband:
       order: '13'
-    group.raspberry_pi_3:
+    group.dns:
       order: '14'
-    group.connected_clients:
-      order: '15'
+    group.raspberry_pi_3:
+      order: '15'   
     group.iphone:
       order: '16'
+    group.connected_clients:
+      order: '17'

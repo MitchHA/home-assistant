@@ -3,7 +3,6 @@
   name: Webcam
   username: neil
   password: !secret cam_password
-    
 
 #### Traffic Cams ###
 # camera 2
