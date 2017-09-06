@@ -16,24 +16,24 @@ history:
 logbook:
 config:
 upnp:
-camera: !include camera/camera.yaml
-android_ip_webcam: !include camera/android webcam.yaml
-mqtt: !include mqtt/mqtt.yaml
-emulated_hue: !include hue/hue.yaml
-group: !include group/group.yaml
-switch: !include switch/switch.yaml
-automation: !include_dir_list automation
-sensor: !include sensor/sensor.yaml
-notify: !include notify/notify.yaml
-shell_command: !include shell/shell.yaml
-light: !include light/light.yaml
-input_select: !include inputs/select.yaml
-frontend: !include themes/themes.yaml
-device_tracker: !include device tracker/device tracker.yaml
-nest: !include nest/nest.yaml
-media_player: !include media player/media player.yaml
-panel_iframe: !include iframe/iframe.yaml
-logger: !include logger/logger.yaml
-ifttt: !include ifttt/ifttt.yaml
-http: !include http/http.yaml
-recorder: !include recorder/recorder.yaml
+camera: !include packages/camera/camera.yaml
+android_ip_webcam: !include packages/camera/android webcam.yaml
+mqtt: !include packages/mqtt/mqtt.yaml
+emulated_hue: !include packages/hue/hue.yaml
+group: !include packages/group/group.yaml
+switch: !include packages/switch/switch.yaml
+automation: !include_dir_list packages/automation
+sensor: !include packages/sensor/sensor.yaml
+notify: !include packages/notify/notify.yaml
+shell_command: !include packages/shell/shell.yaml
+light: !include packages/light/light.yaml
+input_select: !include packages/inputs/select.yaml
+frontend: !include packages/themes/themes.yaml
+device_tracker: !include packages/device tracker/device tracker.yaml
+nest: !include packages/nest/nest.yaml
+media_player: !include packages/media player/media player.yaml
+panel_iframe: !include packages/iframe/iframe.yaml
+logger: !include packages/logger/logger.yaml
+ifttt: !include packages/ifttt/ifttt.yaml
+http: !include packages/http/http.yaml
+recorder: !include packages/recorder/recorder.yaml
