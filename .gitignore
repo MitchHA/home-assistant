@@ -21,3 +21,4 @@ nest.conf
 .gitignore
 .gitattributes
 shell.yaml
+ip_bans.yaml
