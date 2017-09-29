@@ -17,6 +17,7 @@
     view: yes
     icon: mdi:security-home
     entities:
+      - group.system_armed
       - group.security
 
   Travel_View:
@@ -340,13 +341,15 @@
     - sensor.webcam_motion
     - light.hallway_led
     - light.utility_room_led
-    - light.conservatory_led
+    - light.conservatory_led   
+  
+  System Armed:
     - automation.front_door_motion_detection    
     - automation.hallway_motion_detection
     - automation.utility_room_motion_detection
     - automation.conservatory_motion_detection
-    - automation.webcam_motion_detection    
-
+    - automation.webcam_motion_detection
+  
 
   Alex:
     - device_tracker.alex

@@ -90,7 +90,7 @@
        icon: mdi:water-percent
     sensor.hallway_thermostat_temperature:
        friendly_name: 'Hallway Temperature'
-       icon: mdi:nest-thermostat
+       icon: mdi:thermometer
     binary_sensor.hallway_thermostat_online:
        friendly_name: 'Nest Online Status'
     sensor.hallway_thermostat_target:
