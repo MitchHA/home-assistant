@@ -9,6 +9,8 @@
   action:
   - service: switch.turn_on
     entity_id: switch.humax_power
+  - service: switch.turn_on
+    entity_id: switch.humax_fake_command
   - service: notify.ios_neil
     data_template:
       title: "Hummy is turning on"

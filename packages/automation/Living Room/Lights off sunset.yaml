@@ -1,10 +1,10 @@
-########## Lights on light level below 750##########
+########## Lights off light level above 750##########
 
-  alias: Lights on Sunset
+  alias: Lights off Sunset
   trigger:
    platform: numeric_state
    entity_id: sensor.conservatory_ldr
-   below: 750
+   above: 750
   condition:
    - condition: state
      entity_id: group.family
@@ -13,5 +13,5 @@
      after: 'sunset'
      after_offset: '-01:00:00'
   action:
-   service: homeassistant.turn_on
+   service: homeassistant.turn_off
    entity_id: switch.lights

@@ -6,6 +6,7 @@
       - group.living_room
       - group.conservatory
       - group.bedroom
+      - group.utility_room
       - group.garage
       - group.nest
       - group.webcam
@@ -48,7 +49,6 @@
     icon: mdi:robot
     name: Automation
     entities:
-      - group.remote_sockets
       - group.automation
 
   Network_Devices:
@@ -95,6 +95,13 @@
       - group.channel_select
       - group.remote_control
       - group.channel_enable
+      
+  House_Environment:
+     view: yes
+     icon: mdi:thermometer
+     name: House Environment
+     entities:
+      - group.environment
 
 ####Groups####
   Family:
@@ -104,8 +111,8 @@
     - device_tracker.Cerys_
     - device_tracker.Neil
     - device_tracker.Julie
-   #- group.alex
-   #- group.cerys
+    #- group.alex
+    #- group.cerys
   Nest:
     - climate.hallway
     - sensor.hallway_thermostat_temperature
@@ -172,6 +179,7 @@
   Weather:
     - sun.sun
     - sensor.moon
+    - sensor.us_air_quality_index
     - sensor.waqi_southampton_centre_united_kingdom
     - sensor.air_quality
     - sensor.dark_sky_summary
@@ -193,25 +201,26 @@
   Fitbit:
     - sensor.steps
     - sensor.fitbitdistance
-    - sensor.minuteslightlyactive
-    - sensor.minutesfairlyactive
-    - sensor.minutesveryactive
-    - sensor.minutessedentary
+    - sensor.minutes_lightly_active
+    - sensor.minutes_fairly_active
+    - sensor.minutes_very_active
+    - sensor.minutes_sedentary
     - sensor.alta_battery
     - sensor.sleep_efficiency
 
 
-  Remote Sockets:
+  Ensuite:
     - switch.sonoff1
     - sensor.sonoff_temperature
     - sensor.sonoff_humidity
 
   Automation:
     - automation.family_home_lights
+    - automation.ensuite_radiator_on_below_18_celsius
+    - automation.ensuite_radiator_on_high_humidity
     - automation.lights_on_sunset
+    - automation.lights_off_sunset
     - automation.fireplace_on_sunset
-    - automation.lights_off_midnight
-    - automation.tv_off_midnight
     - automation.broadband_drop
     - automation.hummy_on_630am
     - automation.bedroom_fan_on_2230
@@ -234,6 +243,14 @@
     - sensor.bedroom_humidity
     - sensor.bedroom_real_feel 
     - switch.bedroom_fan
+    - switch.sonoff1
+    - sensor.sonoff_temperature
+    - sensor.sonoff_humidity
+    
+  Utility Room:
+    - sensor.utility_room_temperature
+    - sensor.utility_room_humidity
+    - sensor.utility_room_real_feel
     
   Conservatory:
     - sensor.conservatory_temperature
@@ -255,7 +272,22 @@
   iPhone:
     - sensor.iphone_battery_level
     - sensor.iphone_battery_state
-
+    
+  Environment:  
+    - sensor.mqtt_rf_temperature
+    - sensor.mqtt_rf_humidity
+    - sensor.hallway_thermostat_temperature
+    - sensor.hallway_thermostat_humidity
+    - sensor.bedroom_temperature
+    - sensor.bedroom_humidity
+    - sensor.sonoff_temperature
+    - sensor.sonoff_humidity
+    - sensor.utility_room_temperature
+    - sensor.utility_room_humidity
+    - sensor.conservatory_temperature
+    - sensor.conservatory_humidity
+    - sensor.garage_temperature
+    - sensor.garage_humidity
 ########### Network Devices ##############    
     
   Devices:
@@ -276,7 +308,7 @@
 ########### Humax ##############
 
   Channel Select:
-    - input_select.channel    
+    - input_select.channel  
   Remote Control:
     - switch.humax_mute
     - switch.humax_power
@@ -286,6 +318,8 @@
     - switch.humax_channel_down
     - switch.humax_forward
     - switch.humax_back
+    - switch.humax_fake_command
+
 
   Channel Enable:
     - automation.bbc_one

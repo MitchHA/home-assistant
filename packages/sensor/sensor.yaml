@@ -364,6 +364,24 @@ Unknown
   state_topic: "utility" 
   name: "Utility Room PIR"  
   value_template: '{{ value_json.motion }}'
+  
+- platform: mqtt  
+  state_topic: "utility"  
+  name: "Utility Room Temperature"  
+  unit_of_measurement: "°C"  
+  value_template: '{{ value_json.temperature | round(1) }}'  
+  
+- platform: mqtt  
+  state_topic: "utility"  
+  name: "Utility Room Humidity"  
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(1) }}'
+  
+- platform: mqtt
+  state_topic: "utility"
+  name: "Utility Room Real Feel"
+  unit_of_measurement: "°C"
+  value_template: '{{ value_json.heatIndex | round(1) }}'
 
 - platform: mqtt
   name: "Sonoff Temperature"
@@ -410,6 +428,19 @@ Unknown
   token: !secret waqi
   locations:
     - Southampton
+
+
+-  platform: airvisual
+   api_key: !secret airvisual
+   monitored_conditions:
+     - us
+     
+   #city: southampton-a33
+   #state: hampshire
+   #country: uk  
+   latitude: 50.920265
+   longitude: -1.463484
+   radius: 5
     
 - platform: rest
   name: dns_queries_today
@@ -445,3 +476,4 @@ Unknown
   name: queries_cached
   resource: !secret pi_hole_url
   value_template: '{{ value_json.queries_cached }}'
+ 

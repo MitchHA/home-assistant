@@ -26,6 +26,7 @@
   command_topic: "home/commands/MQTTto433/PLSL_306/433_1"
   payload_on: "3124495"
   payload_off: "3124487"
+  optimistic: false
   retain: true
   
 - platform: mqtt
@@ -44,6 +45,7 @@
   qos: 1
   payload_on: "ON"
   payload_off: "OFF"
+  optimistic: false
   retain: true
   
 - platform: mqtt
@@ -54,7 +56,6 @@
   payload_off: "530663"
   optimistic: false
   retain: true
-  
   
 - platform: mqtt
   name: "Humax Power"
@@ -118,3 +119,13 @@
   payload_off: "525053"
   optimistic: false
   retain: true
+  
+- platform: mqtt
+  name: "Humax Fake Command"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_NEC"
+  payload_on: "424543"
+  payload_off: "424543"
+  optimistic: false
+  retain: true
+

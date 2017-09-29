@@ -1,6 +1,6 @@
 ########## Home to Work Nights ##########
 
-  alias: Home to Work Nights 
+  alias: Home to Work Nights
   trigger:
     platform: numeric_state
     entity_id: sensor.neil_home_to_work

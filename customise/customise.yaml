@@ -12,6 +12,8 @@
        friendly_name: 'External IP Address'
        icon: mdi:router-wireless
 
+       
+ ########## Weather  #############
     sensor.dark_sky_summary:
        friendly_name: 'Summary'
     sensor.dark_sky_temperature:
@@ -42,7 +44,13 @@
        friendly_name: 'Pressure'
     sensor.air_quality:
        icon: mdi:cloud-check
-
+    sensor.waqi_southampton_centre_united_kingdom:
+      friendly_name: 'Air Quality'
+    sensor.us_air_quality_index:
+      friendly_name: A33 Air Quality
+      icon: mdi:cloud-check
+       
+ ######## Efergy ##########
     sensor.energy_budget:
        icon: mdi:power-plug
     sensor.energy_cost:
@@ -53,6 +61,8 @@
        friendly_name: 'Daily Usage'
        icon: mdi:power-plug
 
+     
+####### Travel ##########     
     sensor.neil_home_to_work:
        icon: mdi:car
     sensor.neil_work_to_home:
@@ -62,6 +72,17 @@
     sensor.julie_work_to_home:
        icon: mdi:car
 
+    weblink.m27_jcn_3:
+       icon: mdi:car
+    weblink.m27_to_m3:
+       icon: mdi:car
+    weblink.m3_chandlers_ford:
+       icon: mdi:car
+    weblink.m3_twyford:
+       icon: mdi:car
+
+       
+########## House ###########
     sensor.hallway_thermostat_operation_mode:
        friendly_name: 'Nest Mode'
     sensor.hallway_thermostat_humidity:
@@ -76,86 +97,53 @@
        friendly_name: 'Target Temperature'
     binary_sensor.hallway_thermostat_is_using_emergency_heat:
        friendly_name: 'Emergency Heat Mode'
-
     sensor.living_room_humidity:
        icon: mdi:water-percent
-       
-    sensor.sonoff_humidity:
-       icon: mdi:water-percent
-
     climate.hallway:
        friendly_name: 'Thermostat'
-
     sensor.conservatory_humidity:
        icon: mdi:water-percent
-
     sensor.conservatory_temperature:
        icon: mdi:thermometer
-
     sensor.conservatory_LDR:
        icon: mdi:weather-sunny
- 
     sensor.conservatory_PIR:
        icon: mdi:run
-    
     sensor.bedroom_humidity:
        icon: mdi:water-percent
-       
+    sensor.utility_room_humidity:
+       icon: mdi:water-percent
     sensor.garage_humidity:
        icon: mdi:water-percent 
-       
     sensor.mqtt_rf:
        friendly_name: 'Living Room NodeMCU'
        icon: mdi:raspberrypi 
-
     sensor.bedroom_nodemcu:
        icon: mdi:hotel
-
     sensor.hallway_pir:
        icon: mdi:run
-       
     sensor.utility_room_pir:
        icon: mdi:run
-
     sensor.front_door_pir:
        icon: mdi:run 
-       
-    sensor.fitbitdistance:
-       icon: mdi:run
-       
-    group.alex:
-       picture: /local/alex.jpg
-       
-    
-    
     sensor.mqtt_rf_temperature:
        icon: mdi:thermometer
        friendly_name: 'Living Room Temperature'
-       
     sensor.mqtt_rf_humidity:
        icon: mdi:water-percent
        friendly_name: 'Living Room Humidity'
-       
-    sensor.ha_uptime:
-      icon: mdi:home-assistant
-    sensor.ha_current_version:
-      icon: mdi:home-assistant
-    sensor.ssl_Cert_Expiry:
-      icon: mdi:home-assistant
-
-
+    switch.sonoff1:
+       friendly_name: Ensuite Radiator
+       icon: mdi:radiator
+    sensor.sonoff_temperature:
+       friendly_name: Ensuite Temperature
+    sensor.sonoff_humidity:
+       friendly_name: Ensuite Humidity
+       icon: mdi:water-percent 
     sensor.nodemcu:
        friendly_name: 'Conservatory NodeMCU'
        icon: mdi:raspberrypi
        
-    sensor.igd_sent_bytes:
-       friendly_name: 'Sent Bytes'
-    sensor.igd_received_bytes:    
-       friendly_name: 'Received Bytes'
-
-    switch.sonoff1:
-       icon: mdi:power-plug
-
     switch.lights:
        icon: mdi:lightbulb
     switch.tv:
@@ -166,15 +154,28 @@
        icon: mdi:fire
     switch.bedroom_fan:
        icon: mdi:fan
+
+##### Fitbit #######
+
+    sensor.fitbitdistance:
+       icon: mdi:run
        
-    weblink.m27_jcn_3:
-       icon: mdi:car
-    weblink.m27_to_m3:
-       icon: mdi:car
-    weblink.m3_chandlers_ford:
-       icon: mdi:car
-    weblink.m3_twyford:
-       icon: mdi:car
+    group.alex:
+       picture: /local/alex.jpg
+    
+######### Pi ##########
+       
+    sensor.ha_uptime:
+      icon: mdi:home-assistant
+    sensor.ha_current_version:
+      icon: mdi:home-assistant
+    sensor.ssl_Cert_Expiry:
+      icon: mdi:home-assistant
+
+    sensor.igd_sent_bytes:
+       friendly_name: 'Sent Bytes'
+    sensor.igd_received_bytes:    
+       friendly_name: 'Received Bytes'
 
     sensor.disk_use_home:
        friendly_name: 'Used Space'
@@ -197,9 +198,6 @@
     sensor.mold_indicator:
        friendly_name: 'Mould Indicator'
   
-    sensor.waqi_southampton_centre_united_kingdom:
-      friendly_name: 'Air Quality'
-
     sensor.minutesfairlyactive:
        friendly_name: 'Fairly Active Minutes'
     sensor.minuteslightlyactive:
@@ -230,7 +228,7 @@
     sensor.readynas:
        icon: mdi:server
        
-       
+ ########## Humax ##########      
     switch.humax_mute:
         icon: mdi:remote
     switch.humax_power:
@@ -249,8 +247,11 @@
         icon: mdi:remote
     switch.humax_volume_down:
         icon: mdi:remote  
-        
-        
+    switch.humax_fake_command:
+        icon: mdi:remote 
+ 
+
+########## Pi Hole ########## 
     sensor.ads_percentage_today:
       friendly_name: Percentage Blocked
       unit_of_measurement: '%'
@@ -279,7 +280,8 @@
     sensor.queries_cached:
       friendly_name: Queries Cached
       icon: mdi:animation
-          
+
+
 
 # Order groups or entities using order: with a number
     group.family:
@@ -288,7 +290,7 @@
       order: '2'
     group.bedroom:
       order: '3'
-    group.conservatory:
+    group.utility_room:
       order: '4'
     group.nest:
       order: '5'
