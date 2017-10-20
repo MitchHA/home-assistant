@@ -129,3 +129,45 @@
   optimistic: false
   retain: true
 
+- platform: mqtt
+  name: "Sharp TV Channel Up"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_Sharp"
+  payload_on: "424543"
+  payload_off: "424543"
+  optimistic: false
+  retain: true
+  
+- platform: mqtt
+  name: "Sharp TV Channel Down"
+  state_topic: "home/IRtoMQTT/" # defined by subjectGTWIRtoMQTT in User_config.h
+  command_topic: "home/commands/WEMOS/IR_Sharp"
+  payload_on: "16674"
+  payload_off: "16674"
+  optimistic: false
+  retain: true
+  
+  
+- platform: mqtt
+  name: "MQTT RF 3 Off"
+  initial_state: True
+  hide_entity: False
+  trigger:
+  topic: home/433toMQTT
+  command_topic: "home/433toMQTT"
+  payload: "5578549"
+  action:
+  service: homeassistant.turn_off
+  entity_id: switch.fireplace
+  
+- platform: mqtt
+  name: "MQTT RF 3 On"
+  initial_state: True
+  hide_entity: False
+  trigger:
+  topic: home/433toMQTT
+  command_topic: "home/433toMQTT"
+  payload: "5578557"
+  action:
+  service: homeassistant.turn_on
+  entity_id: switch.fireplace

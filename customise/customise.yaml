@@ -140,9 +140,21 @@
     sensor.sonoff_humidity:
        friendly_name: Ensuite Humidity
        icon: mdi:water-percent 
+    sensor.sonoff:
+       friendly_name: Ensuite Sonoff
+       icon: mdi:radiator
     sensor.nodemcu:
        friendly_name: 'Conservatory NodeMCU'
        icon: mdi:raspberrypi
+    sensor.hallway_sensor:
+       friendly_name: 'Hallway'
+       icon: mdi:raspberrypi
+    sensor.utility_room_sensor:
+       friendly_name: 'Utility Room'
+       icon: mdi:raspberrypi
+    sensor.garage_sensor:
+       friendly_name: 'Garage'
+       icon: mdi:raspberrypi            
        
     switch.lights:
        icon: mdi:lightbulb

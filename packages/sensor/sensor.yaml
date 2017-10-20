@@ -281,7 +281,18 @@
         friendly_name: 'Bedroom NodeMCU'
         value_template: "{{ 'Online' if is_state('device_tracker.bedroom_nodemcu', 'home') else 'Off-line' }}"
         
-        
+      garage_sensor:
+        friendly_name: 'Garage Sensor'
+        value_template: "{{ 'Online' if is_state('device_tracker.garage_sensor', 'home') else 'Off-line' }}"
+
+      hallway_sensor:
+        friendly_name: 'Hallway Sensor'
+        value_template: "{{ 'Online' if is_state('device_tracker.hallway_sensor', 'home') else 'Off-line' }}"
+                        
+      utility_room_sensor:
+        friendly_name: 'Utility Room Sensor'
+        value_template: "{{ 'Online' if is_state('device_tracker.utility_room_sensor', 'home') else 'Off-line' }}"
+
       fitbitdistance:
         value_template: '{{ states.sensor.distance.state | multiply(0.6214) | round(2) }}'
         friendly_name: 'Fitbit Distance'
@@ -406,6 +417,13 @@ Unknown
   state_topic: "home/DHTtoMQTT/dht1/hum"
   unit_of_measurement: "%"
   value_template: '{{value | multiply(0.82) | round(1) }}'
+  
+- platform: template
+  sensors:
+      mqtt_real_feel:
+        friendly_name: "Living Room Real Feel"
+        value_template: '{{ (((-42.379 + (2.04901523*(((states.mqtt_rf_temperature.state|float)*1.8)+32)) + (10.14333127*(states.mqtt_rf_humidity.state|float)) - (0.22475541*(((states.mqtt_rf_temperature.state|float)*1.8)+32)*(states.mqtt_rf_humidity.state|float)) - (6.83783 * (10**(-3))*((((states.mqtt_rf_temperature.state|float)*1.8)+32)**2)) - (5.481717 * (10**(-2))*((states.mqtt_rf_humidity.state|float)**2)) + (1.22874 * (10**(-3))*((((states.mqtt_rf_temperature.state|float)*1.8)+32)**2*(states.mqtt_rf_humidity.state|float))) + (8.5282 * (10**(-4))*((((states.mqtt_rf_temperature.state|float)*1.8)+32)*(states.mqtt_rf_humidity.state|float)**2)) - (1.99 * (10**(-6))*((((states.mqtt_rf_temperature.state|float)*1.8)+32)**2)*((states.mqtt_rf_humidity.state|float)**2)))-32)/1.8)|round(2) }}'
+        unit_of_measurement: "°C"
   
 - platform: mqtt  
   state_topic: "frontdoor"  

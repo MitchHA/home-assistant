@@ -1,2 +1,3 @@
-    purge_days: 5
+    purge_interval: 5
+    purge_keep_days: 5
     db_url: !secret mysql

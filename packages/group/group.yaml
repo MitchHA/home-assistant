@@ -167,7 +167,6 @@
     - sensor.speedtest_upload
     - sensor.igd_sent_bytes
     - sensor.igd_received_bytes
-
     - sensor.wan_ip
 
 
@@ -225,9 +224,8 @@
     - automation.broadband_drop
     - automation.hummy_on_630am
     - automation.bedroom_fan_on_2230
-    - automation.auto_renew_ssl_cert
-    
-    
+    - automation.mqtt_rf_3_on
+    - automation.mqtt_rf_3_off
     
 ########### House ##############
 
@@ -296,14 +294,15 @@
     - sensor.mqtt_rf
     - sensor.bedroom_nodemcu
     - sensor.sonoff
+    - sensor.hallway_sensor
+    - sensor.utility_room_sensor
+    - sensor.garage_sensor
     - sensor.chromecast
     - sensor.hummy
     - sensor.obihai
-    - sensor.efergy
     - sensor.nest
     - sensor.roku
     - sensor.alex_pc
-    - sensor.ps4
     - sensor.readynas
 
 ########### Humax ##############
@@ -320,6 +319,8 @@
     - switch.humax_forward
     - switch.humax_back
     - switch.humax_fake_command
+    - switch.sharp_tv_channel_up
+    - switch.sharp_tv_channel_down
 
 
   Channel Enable:

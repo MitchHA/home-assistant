@@ -14,6 +14,15 @@ ios:
 conversation:
 history:
 logbook:
+  exclude:
+    entities:
+      - sensor.dns_queries_today
+      - sensor.domains_being_blocked
+      - sensor.ads_blocked_today
+      - sensor.ads_percentage_today
+      - sensor.unique_domains
+      - sensor.queries_forwarded
+      - sensor.queries_cached
 config:
 upnp:
 camera: !include packages/camera/camera.yaml

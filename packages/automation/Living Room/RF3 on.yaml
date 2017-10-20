@@ -1,0 +1,10 @@
+  alias: "MQTT RF 3 On"
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: mqtt
+    topic: home/433toMQTT
+    payload: 5578557
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.fireplace

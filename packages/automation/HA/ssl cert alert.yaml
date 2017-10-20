@@ -1,9 +1,9 @@
-  alias: 'SSL expiry warning'
+  alias: 'SSL renew warning'
   trigger:
     platform: numeric_state
     entity_id: sensor.ssl_cert_expiry
-    below: 25
+    below: 30
   action:
     service: notify.ios_neil
     data:
-      message: 'Warning - Open ports for SSL renewal'
+      message: 'Time to renew Lets Encrypt'

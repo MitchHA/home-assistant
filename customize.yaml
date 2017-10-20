@@ -1,2 +1,4 @@
 group.fitbit:
   friendly_name: Fitbit
+sensor.us_air_quality_index:
+  unit_of_measurement: PSI
