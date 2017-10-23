@@ -292,6 +292,10 @@
       utility_room_sensor:
         friendly_name: 'Utility Room Sensor'
         value_template: "{{ 'Online' if is_state('device_tracker.utility_room_sensor', 'home') else 'Off-line' }}"
+        
+      retropie:
+        friendly_name: 'RetroPie'
+        value_template: "{{ 'Online' if is_state('device_tracker.retropie', 'home') else 'Off-line' }}"
 
       fitbitdistance:
         value_template: '{{ states.sensor.distance.state | multiply(0.6214) | round(2) }}'

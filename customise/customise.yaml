@@ -155,6 +155,8 @@
     sensor.garage_sensor:
        friendly_name: 'Garage'
        icon: mdi:raspberrypi            
+    sensor.retropie:
+       icon: mdi:raspberrypi  
        
     switch.lights:
        icon: mdi:lightbulb
@@ -209,6 +211,7 @@
 
     sensor.mold_indicator:
        friendly_name: 'Mould Indicator'
+       icon: mdi:water-percent
   
     sensor.minutesfairlyactive:
        friendly_name: 'Fairly Active Minutes'
