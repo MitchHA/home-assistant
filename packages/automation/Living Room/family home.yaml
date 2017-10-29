@@ -5,12 +5,19 @@
     from: "not_home"
     to: "home"
   condition:
-    - condition: state
-      entity_id: sun.sun
-      state: "below_horizon"
-    - condition: time
-      after: '16:00:00'
-      before: '00:00:00'
+   - condition: state
+     entity_id: group.family
+     state: "home"
+   - condition: sun
+     after: 'sunset'
   action:
-    service: homeassistant.turn_on
+  - service: homeassistant.turn_on
     entity_id: switch.lights
+  - delay:
+          # LED strip delay after power on
+          seconds: 10
+  - service: homeassistant.turn_on
+    entity_id: light.led_strip
+    data:
+      brightness: 100
+      rgb_color: [255, 0, 0] # Green LED on power on

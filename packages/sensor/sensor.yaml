@@ -444,7 +444,9 @@ Unknown
 - platform: mqtt  
   state_topic: "frontdoor"  
   name: "Front Door PIR"  
-  value_template: '{{ value_json.motion }}'  
+  value_template: '{{ value_json.motion }}' 
+
+- platform: uptime
 
 - platform: waqi
   token: !secret waqi

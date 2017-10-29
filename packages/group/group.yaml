@@ -142,7 +142,7 @@
 
   Raspberry Pi 3:
     - sensor.ssl_Cert_Expiry
-    - sensor.ha_uptime
+    - sensor.uptime
     - sensor.ha_current_version
     - sensor.cpu_temperature
     - sensor.disk_free_home
