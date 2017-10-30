@@ -48,7 +48,15 @@
       friendly_name: 'Air Quality'
     sensor.us_air_quality_index:
       friendly_name: A33 Air Quality
-      icon: mdi:cloud-check
+      icon: mdi:cloud-check  
+    sensor.nextsunrise:
+      icon: mdi:weather-sunset-up
+    sensor.nextsunset:
+      icon: mdi:weather-sunset-down
+    sensor.dayofyear:
+      icon: mdi:calendar-today
+    sensor.weekofyear:
+      icon: mdi:calendar-clock 
        
  ######## Efergy ##########
     sensor.energy_budget:

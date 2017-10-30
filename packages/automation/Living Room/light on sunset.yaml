@@ -22,4 +22,4 @@
     entity_id: light.led_strip
     data:
       brightness: 100
-      rgb_color: [255, 0, 0] # Green LED on power on
+      rgb_color: [0, 255, 0] # Green LED on power on

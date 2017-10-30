@@ -500,4 +500,28 @@ Unknown
   name: queries_cached
   resource: !secret pi_hole_url
   value_template: '{{ value_json.queries_cached }}'
+  
+- platform: template
+  sensors:  
+      nextsunrise:
+        friendly_name: 'Sunrise'
+        value_template: '{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom("%T %Z") }}'
+
+- platform: template
+  sensors:
+       nextsunset:
+         friendly_name: 'Sunset'
+         value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%T %Z") }}'
+  
+- platform: template
+  sensors:  
+      dayofyear:
+        friendly_name: 'Day Number'
+        value_template: '{{ now().strftime("%j") }}'
+
+- platform: template
+  sensors:
+    weekofyear:
+        friendly_name: 'Week Number'
+        value_template: '{{ now().strftime("%U") }}'
  

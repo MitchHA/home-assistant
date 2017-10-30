@@ -42,7 +42,9 @@
     icon: mdi:weather-rainy
     name: Weather
     entities:
+      - group.almanac
       - group.weather
+      
 
 
   Automation_View:
@@ -177,11 +179,6 @@
     - sensor.energy_consumed
 
   Weather:
-    - sun.sun
-    - sensor.moon
-    - sensor.us_air_quality_index
-    - sensor.waqi_southampton_centre_united_kingdom
-    - sensor.air_quality
     - sensor.dark_sky_summary
     - sensor.dark_sky_temperature
     - sensor.dark_sky_apparent_temperature
@@ -196,6 +193,17 @@
     - sensor.dark_sky_nearest_storm_distance
     - sensor.dark_sky_nearest_storm_bearing
     - sensor.dark_sky_pressure
+    
+  Almanac:
+    - sun.sun
+    - sensor.nextsunrise
+    - sensor.nextsunset
+    - sensor.moon
+    - sensor.us_air_quality_index
+    - sensor.waqi_southampton_centre_united_kingdom
+    - sensor.air_quality
+    - sensor.dayofyear
+    - sensor.weekofyear 
 
 
   Fitbit:
