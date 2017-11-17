@@ -1,6 +1,14 @@
 
   
 #############MQTT NodeMCU Switch###############
+- platform: mqtt
+  name: "All Off"
+  state_topic: "home/433toMQTT" 
+  command_topic: "home/commands/MQTTto433/PLSL_306/433_1"
+  payload_on: "5578552"
+  payload_off: "5578552"
+  optimistic: false
+  retain: true
   
 - platform: mqtt
   name: "Lights"
@@ -35,6 +43,15 @@
   command_topic: "home/commands/MQTTto433/PLSL_306/433_1"
   payload_on: "5578558"
   payload_off: "5578550"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Christmas Lights"
+  state_topic: "home/433toMQTT" 
+  command_topic: "home/commands/MQTTto433/PLSL_306/433_1"
+  payload_on: "3124495"
+  payload_off: "3124487"
   optimistic: false
   retain: true
        
@@ -148,26 +165,3 @@
   retain: true
   
   
-- platform: mqtt
-  name: "MQTT RF 3 Off"
-  initial_state: True
-  hide_entity: False
-  trigger:
-  topic: home/433toMQTT
-  command_topic: "home/433toMQTT"
-  payload: "5578549"
-  action:
-  service: homeassistant.turn_off
-  entity_id: switch.fireplace
-  
-- platform: mqtt
-  name: "MQTT RF 3 On"
-  initial_state: True
-  hide_entity: False
-  trigger:
-  topic: home/433toMQTT
-  command_topic: "home/433toMQTT"
-  payload: "5578557"
-  action:
-  service: homeassistant.turn_on
-  entity_id: switch.fireplace

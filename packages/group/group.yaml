@@ -4,11 +4,11 @@
     entities:
       - group.family
       - group.living_room
-      - group.conservatory
+      - group.nest
       - group.bedroom
       - group.utility_room
+      - group.conservatory
       - group.garage
-      - group.nest
       - group.webcam
       - camera.webcam
       - updater.updater
@@ -69,8 +69,8 @@
     entities:
       - group.energy
       - group.broadband
-      - group.dns
       - group.raspberry_pi_3
+      - group.dns
       - group.iphone
       - group.connected_clients
 
@@ -108,14 +108,15 @@
 
 ####Groups####
   Family:
-    - device_tracker.Alex
-    - device_tracker.Cerys
-    - device_tracker.Alex_
-    - device_tracker.Cerys_
+   # - device_tracker.Alex
+   # - device_tracker.Cerys
+   # - device_tracker.Alex_
+   # - device_tracker.Cerys_
     - device_tracker.Neil
     - device_tracker.Julie
-    #- group.alex
-    #- group.cerys
+    - group.alex
+    - group.cerys
+
   Nest:
     - climate.hallway
     - sensor.hallway_thermostat_temperature
@@ -143,6 +144,7 @@
     - automation.work_to_home_nights
 
   Raspberry Pi 3:
+    - input_boolean.restart_hass
     - sensor.ssl_Cert_Expiry
     - sensor.uptime
     - sensor.ha_current_version
@@ -232,8 +234,6 @@
     - automation.broadband_drop
     - automation.hummy_on_630am
     - automation.bedroom_fan_on_2230
-    - automation.mqtt_rf_3_on
-    - automation.mqtt_rf_3_off
     
 ########### House ##############
 
@@ -241,9 +241,13 @@
     - switch.lights
     - switch.tv
     - switch.fireplace
+    - switch.christmas_lights
     - sensor.mqtt_rf_temperature
     - sensor.mqtt_rf_humidity
     - sensor.mold_indicator
+   # - light.led_strip_red
+   # - light.led_strip_green
+   # - light.led_strip_blue
     - light.led_strip
     - input_number.led_animation_speed
   Bedroom:

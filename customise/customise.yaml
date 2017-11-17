@@ -183,7 +183,10 @@
        icon: mdi:run
        
     group.alex:
-       picture: /local/alex.jpg
+       entity_picture: /local/alex.jpg
+
+    group.cerys:
+       entity_picture: /local/cerys.jpeg
     
 ######### Pi ##########
        
@@ -194,6 +197,8 @@
       icon: mdi:home-assistant
     sensor.ssl_Cert_Expiry:
       icon: mdi:home-assistant
+    input_boolean.restart_hass:
+      friendly_name: Restart HA
 
     sensor.igd_sent_bytes:
        friendly_name: 'Sent Bytes'
