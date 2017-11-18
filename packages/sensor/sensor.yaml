@@ -376,6 +376,18 @@ Unknown
   value_template: '{{ value_json.motion }}'
   
 - platform: mqtt  
+  state_topic: "hallway"  
+  name: "Hallway Temperature"  
+  unit_of_measurement: "°C"  
+  value_template: '{{ value_json.temperature | round(1) }}'  
+  
+- platform: mqtt  
+  state_topic: "hallway"  
+  name: "Hallway Humidity"  
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(1) }}'
+  
+- platform: mqtt  
   state_topic: "utility" 
   name: "Utility Room PIR"  
   value_template: '{{ value_json.motion }}'

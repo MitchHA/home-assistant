@@ -93,10 +93,10 @@
 ########## House ###########
     sensor.hallway_thermostat_operation_mode:
        friendly_name: 'Nest Mode'
-    sensor.hallway_thermostat_humidity:
+    sensor.hallway_humidity:
        friendly_name: 'Hallway Humidity'
        icon: mdi:water-percent
-    sensor.hallway_thermostat_temperature:
+    sensor.hallway_temperature:
        friendly_name: 'Hallway Temperature'
        icon: mdi:thermometer
     binary_sensor.hallway_thermostat_online:
@@ -176,6 +176,8 @@
        icon: mdi:fire
     switch.bedroom_fan:
        icon: mdi:fan
+    switch.christmas_lights:
+       icon: mdi:pine-tree
 
 ##### Fitbit #######
 
