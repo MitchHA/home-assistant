@@ -67,9 +67,11 @@
   name: LED Strip Green
   state_topic: "bruh/porch"
   command_topic: "bruh/porch/set"
-  effect: true
   optimistic: false
-  rgb_color: [0, 255, 0] # Green LED on
+  rgb: true
+  rgb_state_topic: "bruh/porch"
+  rgb_command_topic: "bruh/porch/set"
+
   
 - platform: mqtt
   name: LED Strip Red
@@ -77,12 +79,6 @@
   command_topic: "bruh/porch/set"
   effect: true
   optimistic: false
+  rgb_state_topic: "bruh/porch"
+  rgb_command_topic: "bruh/porch/set"
   rgb_color: [255, 0, 0] # Red LED on
-  
-- platform: mqtt
-  name: LED Strip Blue
-  state_topic: "bruh/porch"
-  command_topic: "bruh/porch/set"
-  effect: true
-  optimistic: false
-  rgb_color: [0, 0, 255] # Red LED on

@@ -13,4 +13,5 @@
     service: notify.ios_neil
     data_template:
         title: "Traffic Alert"
-        message: "Check Traffic - Home to Work Nights"
+        message: "Check Traffic {{ sensor.neil_home_to_work }} minutes
+- Home to Work Nights"

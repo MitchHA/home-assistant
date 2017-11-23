@@ -86,6 +86,9 @@
     icon: mdi:television
     name: Media Player
     entities:
+      - light.led_strip_red
+      - light.led_strip_green
+      - light.led_strip_blue
       - media_player.roku_lt
       - media_player.neils_chromecast
 
