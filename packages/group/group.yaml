@@ -232,7 +232,6 @@
     - automation.ensuite_radiator_on_below_18_celsius
     - automation.ensuite_radiator_on_high_humidity
     - automation.lights_on_sunset
-    - automation.lights_off_sunset
     - automation.fireplace_on_sunset
     - automation.broadband_drop
     - automation.hummy_on_630am

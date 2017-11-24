@@ -8,10 +8,9 @@
   condition:
     condition: time
     after: '18:00'
-    before: '20:00'  
+    before: '21:00'  
   action:
     service: notify.ios_neil
     data_template:
-        title: "Traffic Alert"
-        message: "Check Traffic {{ sensor.neil_work_to_home }} minutes
-- Work to Home Days"
+        title: "Traffic Alert - Work to Home Days"
+        message: "Current travel time is {{ states.sensor.neil_work_to_home.state }} minutes"

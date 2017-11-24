@@ -12,5 +12,5 @@
   action:
     service: notify.ios_neil
     data_template:
-        message: "Check Traffic {{ sensor.neil_work_to_home }} minutes
-- Work to Home Nights"
+        title: "Traffic Alert - Work to Home Nights"
+        message: "Current travel time is {{ states.sensor.neil_work_to_home.state }} minutes"
