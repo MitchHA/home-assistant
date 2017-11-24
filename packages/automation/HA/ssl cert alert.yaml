@@ -6,4 +6,5 @@
   action:
     service: notify.ios_neil
     data:
-      message: 'Time to renew Lets Encrypt'
+      title: "Time to renew Lets Encrypt"
+      message: "Lets Encrypt runs out in {{ states.sensor.ssl_cert_expiry.state }} Days"
