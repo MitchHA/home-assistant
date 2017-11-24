@@ -6,4 +6,5 @@
   action:
     service: notify.ios_neil
     data:
-      message: 'Warning - Air Quality Alert'
+      title: "Air Quality Alert"
+      message: "Current Air Quality is {{ states.sensor.waqi_southampton_centre_united_kingdom.state}},{{states.sensor.air_quality.state }}"
