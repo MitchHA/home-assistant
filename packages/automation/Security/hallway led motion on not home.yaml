@@ -9,8 +9,9 @@
      entity_id: group.family
      state: not_home
   action:
-    service: light.turn_on
+  - service: light.turn_on
     entity_id: light.hallway_led
     data:
       brightness: 250
       rgb_color: [255, 0, 0]
+  - delay: 00:05:00
