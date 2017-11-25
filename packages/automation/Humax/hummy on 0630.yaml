@@ -3,9 +3,12 @@
     platform: time
     at: '06:30:00'
   condition:
-    condition: state
+  - condition: state
     entity_id: group.family
     state: home
+  - condition: state  
+    entity_id: sensor.hummy
+    state: Offline 
   action:
   - service: switch.turn_on
     entity_id: switch.humax_power
