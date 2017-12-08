@@ -1,2 +1,6 @@
   restart_hass:
     initial: off
+  front_doorbell:
+    name: Front Doorbell
+    initial: off
+    icon: mdi:door
