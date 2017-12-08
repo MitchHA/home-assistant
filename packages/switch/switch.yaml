@@ -32,8 +32,8 @@
   name: "Bedroom Fan"
   state_topic: "home/433toMQTT" 
   command_topic: "home/commands/MQTTto433/PLSL_306/433_1"
-  payload_on: "3124495"
-  payload_off: "3124487"
+  payload_on: "9112158"
+  payload_off: "9112150"
   optimistic: false
   retain: true
   

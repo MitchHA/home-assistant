@@ -471,12 +471,12 @@ Unknown
    monitored_conditions:
      - us
      
-   #city: southampton-a33
+   #city: southampton
    #state: hampshire
    #country: uk  
-   latitude: 50.920265
-   longitude: -1.463484
-   radius: 5
+   latitude: 50.9202178
+   longitude: -1.4633123
+   radius: 100
     
 - platform: rest
   name: dns_queries_today

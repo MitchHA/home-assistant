@@ -31,7 +31,7 @@
       - camera.m27_to_m3
       - camera.m3_chandlers_ford
       - camera.m3_twyford
-      - camera.m3_jcn_6
+#    - camera.m3_jcn_6
 #    - weblink.m27_jcn_3
 #    - weblink.m27_to_m3
 #    - weblink.m3_twyford
@@ -352,6 +352,7 @@
 ########### Security ##############      
 
   Security:
+    - input_boolean.front_doorbell    
     - sensor.front_door_pir
     - sensor.hallway_pir
     - sensor.utility_room_pir
